@@ -123,6 +123,7 @@ export interface HealthCard {
     phone: string
     relationship: string
   }
+  medicalHistory?: string
   medicalConditions?: string[]
   createdAt: Date
   updatedAt: Date

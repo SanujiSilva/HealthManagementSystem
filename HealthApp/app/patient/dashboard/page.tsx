@@ -179,14 +179,6 @@ export default function PatientDashboard() {
                 <div className={styles.statChange}>Scheduled</div>
               </div>
 
-              <div className={styles.statCard}>
-                <div className={styles.statHeader}>
-                  <span className={styles.statLabel}>Prescriptions</span>
-                  <div className={`${styles.statIcon} ${styles.accent}`}>💊</div>
-                </div>
-                <div className={styles.statValue}>0</div>
-                <div className={styles.statChange}>Active</div>
-              </div>
 
               <div className={styles.statCard}>
                 <div className={styles.statHeader}>

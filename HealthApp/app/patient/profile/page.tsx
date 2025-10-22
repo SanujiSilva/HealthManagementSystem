@@ -28,6 +28,10 @@ export default function PatientProfile() {
     dateOfBirth: "",
     gender: "",
     address: "",
+    allergies: "",
+    bloodGroup: "",
+    emergencyContact: "",
+    medicalHistory: "",
     currentPassword: "",
     newPassword: "",
     confirmPassword: "",
@@ -49,6 +53,10 @@ export default function PatientProfile() {
         dateOfBirth: data.user.dateOfBirth || "",
         gender: data.user.gender || "",
         address: data.user.address || "",
+        allergies: data.user.allergies || "",
+        bloodGroup: data.user.bloodGroup || "",
+        emergencyContact: data.user.emergencyContact || "",
+        medicalHistory: data.user.medicalHistory || "",
         currentPassword: "",
         newPassword: "",
         confirmPassword: "",
@@ -80,6 +88,10 @@ export default function PatientProfile() {
         dateOfBirth: formData.dateOfBirth,
         gender: formData.gender,
         address: formData.address,
+        allergies: formData.allergies,
+        bloodGroup: formData.bloodGroup,
+        emergencyContact: formData.emergencyContact,
+        medicalHistory: formData.medicalHistory,
       }
 
       if (formData.currentPassword && formData.newPassword) {
@@ -240,6 +252,64 @@ export default function PatientProfile() {
                   rows={3}
                 />
               </div>
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel}>Allergies</label>
+                <input
+                  type="text"
+                  className={styles.formInput}
+                  value={formData.allergies}
+                  onChange={(e) => setFormData({ ...formData, allergies: e.target.value })}
+                  placeholder="E.g., Penicillin, Dust, Peanuts"
+                />
+                <small className={styles.formHint}>
+                  Separate multiple allergies with commas
+                </small>
+              </div>
+
+              {/* Blood Group */}
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel}>Blood Group</label>
+                <select
+                  className={styles.formSelect}
+                  value={formData.bloodGroup}
+                  onChange={(e) => setFormData({ ...formData, bloodGroup: e.target.value })}
+                >
+                  <option value="">Select blood group</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                </select>
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel}>Medical History</label>
+                <textarea
+                  className={styles.formTextarea}
+                  value={formData.medicalHistory}
+                  onChange={(e) => setFormData({ ...formData, medicalHistory: e.target.value })}
+                  placeholder="Describe previous illnesses, surgeries, or ongoing conditions"
+                  rows={4}
+                />
+              </div>
+
+              {/* Emergency Contact */}
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel}>Emergency Contact</label>
+                <input
+                  type="tel"
+                  className={styles.formInput}
+                  value={formData.emergencyContact || ""}
+                  onChange={(e) =>
+                    setFormData({ ...formData, emergencyContact: e.target.value })
+                  }
+                  placeholder="Full name of emergency contact"
+                />
+              </div>
+
             </div>
 
             <div className={styles.formSection}>
